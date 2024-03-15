@@ -1,0 +1,256 @@
+.main {
+  background-color: #343434;
+  margin:  0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 10px;
+}
+.container {
+  width: 100%;
+  background-size: 100% 100%;
+}
+
+.Header {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 40px 0px;
+  border-bottom: 2px solid white;
+  margin-bottom: 10px;
+  > div {
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    > a {
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0px 0px 14px -7px #f09819;
+      background-image: linear-gradient(
+        45deg,
+        #ff512f 0%,
+        #f09819 51%,
+        #ff512f 100%
+      );
+      border-radius: 100px;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      display: inline-block;
+      font-family: CerebriSans-Regular,
+        -apple-system, system-ui, Roboto,
+        sans-serif;
+      padding: 7px 10px;
+      border: 2px solid #a9a9a8bd;
+      font-size: 16px;
+    }
+  }
+}
+
+.header-button-unactive {
+  width: 100px;
+  transform: translate3d(0, -2px, 0);
+}
+
+.header-button-active {
+  transition: all 0.01s ease;
+  transform: translate3d(0, 2px, 0);
+  width: 120px;
+}
+
+.aboutus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 83vh;
+  > :nth-child(1) {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    h1 {
+      color: white;
+      margin-left: 10px;
+    }
+  }
+  > :nth-child(2) {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    width: 80%;
+    > :nth-child(1) {
+      width: 40%;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      > img {
+        width: 80%;
+        border-radius: 50%;
+      }
+    }
+    > :nth-child(2) {
+      width: 40%;
+      background-color: white;
+      padding: 20px 20px;
+      p {
+        font-size: large;
+        text-align: justify;
+        border-left: 4px solid black;
+        padding-left: 15px;
+      }
+      h1 {
+        color: black;
+        i {
+          color: #e8beac;
+        }
+      }
+      h2 {
+        span {
+          color: #ff512f;
+        }
+      }
+    }
+  }
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  height: 83vh;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  > div {
+    width: 70%;
+    height: 60vh;
+    border: 1px solid white;
+    margin-top: 50px;
+    position: relative;
+    display: flex;
+    box-shadow: rgb(255, 255, 255) 0px
+      5px 15px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    button {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      top: 50%;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background-color: black;
+      opacity: 0.3;
+      i {
+        font-size: 50px;
+        color: white;
+      }
+      &:hover {
+        opacity: 0.8;
+        background-color: #f09819;
+      }
+    }
+    #btnNext {
+      right: 5px;
+    }
+    #btnPrevious {
+      left: 5px;
+    }
+  }
+}
+
+.moviecontainer {
+  display: flex;
+}
+.movie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 85%;
+  border: 1px solid white;
+  background-color: #f09819;
+}
+
+.moviebox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  width: 200px;
+  border: 1px solid white;
+  margin: 20px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 2px 2px 3px 0px #434343;
+  img {
+    width: 100%;
+    height: 180px;
+  }
+  :nth-child(3) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.movieSide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 15%;
+  padding: 10px;
+  input{
+    height: 30px;
+    width: 170px;
+    border-radius: 5px;
+    border: none;
+  }
+  button.unactive {
+    width: 580%;
+    text-align: center;
+    box-shadow: 1px 1px 3px 0px #f09819;
+    background-color: aliceblue;
+    border-radius: 5px;
+    color: #343434;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,
+      -apple-system, system-ui, Roboto,
+      sans-serif;
+    padding: 5px 10px;
+    border: none;
+    font-size: 16px;
+    margin: 5px 0px;
+    &:hover{
+      background-color: #555555;
+      color: white;
+    }
+  } 
+  button.active{
+    width: 620%;
+    text-align: center;
+    box-shadow: 1px 1px 3px 0px #f09819;
+    background-color: #f09819;
+    border-radius: 5px;
+    color: #343434;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,
+      -apple-system, system-ui, Roboto,
+      sans-serif;
+    padding: 5px 10px;
+    border: none;
+    font-size: 16px;
+    margin: 5px 0px;
+    // transition: all 0.01s ease;
+    // transform: translate3d(0, 2px, 0);
+  }
+
+}

@@ -14,32 +14,21 @@ export default class Movie extends Component {
       tempMovies: [],
       genreArray: [],
       filterMovie: [],
-      filterSubject: []
+      filterSubject: [],
     }
   }
-  getData = () => {
-    
-    const data = myJson
-    this.setState({
-      posts: data,
-      tempMovies: data
-    })
-    var array = [];
-    for (let i = 0; i < data.length; i++) {
-      let genre = data[i].Genre
-      let myArray = genre.split(", ");
-      let toarray = [...array, ...myArray]
-      array = toarray
-    }
-    const uniqGenre = new Set(array)
-    const arrayUniqGenre = [...uniqGenre];
-    this.setState({
-      genreArray: arrayUniqGenre
-    })
 
-  }
   componentDidMount = () => {
     this.getData();
+  }
+
+  getData = () => {
+    fetch('/json/data.json')
+      .then(response => response.json())
+      .then(data => this.setState({
+        posts: data.movies,
+        tempMovies: data.movies
+      },() => this.getGenre()))
   }
 
   activeClass = (event) => {
@@ -54,7 +43,9 @@ export default class Movie extends Component {
     }
     this.getMovie(event);
   }
+
   getMovie = (event) => {
+
     var eventGenre = event.target.value;
     var movies = this.state.tempMovies;
     var filterMovie = [];
@@ -75,7 +66,7 @@ export default class Movie extends Component {
         for (let i = 0; i < movies.length; i++) {
           let genre = movies[i].Genre;
           let searchResult = genre.includes(filterSubject[j]);
-          if (searchResult ) {
+          if (searchResult) {
             filterMovie.push(movies[i]);
           }
         }
@@ -88,6 +79,28 @@ export default class Movie extends Component {
       posts: filterMovie
     })
   }
+
+  getGenre = () => {
+    var array = [];
+    var genre = '';
+    var myArray = [];
+    var toarray = [];
+    console.log(this.state)
+    this.state.tempMovies.map((movie) => {
+      genre = movie.Genre
+      console.log(movie)
+      myArray = genre.split(", ");
+      toarray = [...array, ...myArray]
+      array = toarray
+    })
+    const uniqGenre = new Set(array)
+    const arrayUniqGenre = [...uniqGenre];
+    this.setState({
+      genreArray: arrayUniqGenre
+    })
+  }
+
+
   changeInutHandler = (event) => {
     var text = event.target.value.toLowerCase();
     const movies = this.state.tempMovies;
